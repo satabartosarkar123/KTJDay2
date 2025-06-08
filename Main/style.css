@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
+*{margin:0;padding:0;box-sizing: border-box; font-family: Helvetica, sans-serif; font-style: normal; letter-spacing: 0.7px; font-size: 100%; font-weight: normal;}
+button, .click{background-color:transparent;resize:none;border:0;-webkit-tap-highlight-color:rgba(0,0,0,0);outline:0;outline-offset:0; cursor:pointer;}
+html, body{height: 1px; min-height: 100%; width: 100%;}
+body{position: fixed; overflow-x: hidden; background-image: url('img/bg.jpg'); background-repeat: no-repeat; background-size: cover; display: flex; justify-content: center;}
+.loading{visibility: hidden;}
+.loading::after{content: "Loading..."; position: fixed; visibility: visible; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: #a52a2a; font-size: 20px;}
+main{width: 465px; height: 100%;}
+.head-line, .board, .tiles-board{float: left; width: 100%;}
+.board{position: relative; height: 465px;}
+.tiles-board{position: relative; height: calc(100% - 60px - 450px); display: flex; justify-content: space-between; margin: 20px 0 0 8px;}
+/*********************** Menu ***************************/
+#menu{z-index: 9; position: inherit; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);}
+#menu *{font-family: Galada, sans-serif;}
+#menu div{width: 300px;}
+#menu h1{font-size: 50px; color: #a52a2a; letter-spacing: 5px;}
+#menu button{display: block; cursor: pointer; font-size: 26px; color: #a52a2a;}
+#menu button:hover{text-decoration: underline;}
+/*********************** Head line ***************************/
+.head-line{height: 60px; text-align: center; display: flex; align-items: center; justify-content: space-between; padding: 0 1px}
+.progress{position: relative; display: block; width: 100px; height: 8px; border-radius: 4px; background-color: rgb(165, 42, 42, 0.2); overflow: hidden;}
+#progress-value{position: absolute; left: 0; top: 0; display: block; height: 100%; background-color: #a52a2a; transition: 0.5s;}
+#mistakes{display: inline-block; width: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; color: #a52a2a;}
+#help{width: 36px; height: 36px; background-image: url('img/help.svg'); background-repeat: no-repeat; background-size: cover;}
+.help-inactive{opacity: 0.3;}
+/*********************** Board ***************************/
+.board i{float: left; width: 100%; height: 3px; background-color: rgb(165, 42, 42, 0.5); margin: 2px 0;}
+.row{float: left; width: 100%; height: 50px;}
+.row i{float: left; width: 3px; height: 100%; background-color: rgb(165, 42, 42, 0.5); margin: 0 2px;}
+.slot{position: relative; float: left; width: 48px; height: 48px; background-color: rgb(165, 42, 42, 0.2); border-radius: 7px; margin: 1px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #a52a2a;}
+.slot-selected{border: 1px solid #a52a2a; box-shadow: inset 0px 0px 10px 0px #a52a2a;}
+/*********************** Tiles ***************************/
+.tile, .tile-board{z-index: 1; position: fixed; left: 0; top: 0; display: flex; justify-content: center; align-items: center; width: 48px; height: 48px; border-radius: 7px; border: 1px solid #a52a2a; background-image: url('img/bg-btn.jpg'); background-repeat: no-repeat; background-size: cover; cursor: pointer; color: #a52a2a; font-size: 20px; font-weight: bold; transition: 0.5s;}
+.tile-board{position: absolute;}
+.tile-board:nth-child(1){left: 0px;}
+.tile-board:nth-child(2){left: 50px;}
+.tile-board:nth-child(3){left: 100px;}
+.tile-board:nth-child(4){left: 150px;}
+.tile-board:nth-child(5){left: 200px;}
+.tile-board:nth-child(6){left: 250px;}
+.tile-board:nth-child(7){left: 300px;}
+.tile-board:nth-child(8){left: 350px;}
+.tile-board:nth-child(9){left: 400px;}
+.tile-active{border: 1px solid #008000; color: #008000; transition: 0.1s; box-shadow: 0 0 5px #008000, inset 0 0 5px #008000;}
+#a-it-soffice{position: absolute; bottom: 10px; right: 10px; color: #FF4666; text-decoration: underline; font-size: 16px;}
+@media only screen and (max-width: 767px) {
+    /*** for Mobile devices ***/
+    main{width: 320px; height: 100%;}
+    .board{height: 320px;}
+    .tiles-board{height: calc(100% - 60px - 320px); margin: 10px 0 0 12px;}
+    .row{height: 32px;}
+    .slot{width: 32px; height: 32px;}
+    .tile, .tile-board{width: 32px; height: 32px;}
+    .tile-board:nth-child(2){left: 33px;}
+    .tile-board:nth-child(3){left: 66px;}
+    .tile-board:nth-child(4){left: 99px;}
+    .tile-board:nth-child(5){left: 132px;}
+    .tile-board:nth-child(6){left: 165px;}
+    .tile-board:nth-child(7){left: 198px;}
+    .tile-board:nth-child(8){left: 231px;}
+    .tile-board:nth-child(9){left: 264px;}
+}
